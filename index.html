@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hantverkskraft – Bemanning av hantverkare</title>
-  <meta name="description" content="Hantverkskraft kopplar skickliga hantverkare med entreprenörer i byggsektorn. Murare, putsarbetare, snickare och fler." />
+  <title>Hantverkskraft | Bemanning av hantverkare</title>
+  <meta name="description" content="Hantverkskraft kopplar skickliga hantverkare med entreprenörer i byggsektorn." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -12,28 +12,31 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black: #0f0f0f;
-      --white: #ffffff;
-      --gray-50: #fafafa;
+      --white: #fff;
+      --black: #151515;
+      --bg-warm: #f5f2eb;
       --gray-100: #f5f5f5;
-      --gray-200: #e5e5e5;
+      --gray-200: #e8e8e8;
       --gray-300: #d4d4d4;
       --gray-400: #a3a3a3;
       --gray-500: #737373;
       --gray-600: #525252;
-      --gray-700: #404040;
-      --serif: 'Cormorant Garamond', 'Georgia', serif;
-      --sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --gray-800: #383838;
+      --green: #135b45;
+      --green-light: #19a26c;
+      --blue: #0071c1;
+      --red: #d94636;
+      --serif: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
+      --sans: 'Inter', -apple-system, system-ui, sans-serif;
       --mono: 'Courier New', Courier, monospace;
-      --max-w: 1160px;
-      --nav-h: 52px;
+      --max-w: 1280px;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--sans);
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.5;
       color: var(--black);
       background: var(--white);
@@ -41,42 +44,54 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    ::selection {
-      background: rgba(15,15,15,0.08);
-    }
+    a { color: inherit; }
 
-    /* ══════ ANNOUNCEMENT BAR ══════ */
+    /* ════════════════════════════════════════
+       ANNOUNCEMENT BAR
+       ════════════════════════════════════════ */
     .announce {
-      background: var(--black);
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
       text-align: center;
-      padding: 10px 24px;
+      padding: 10px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
     }
 
     .announce-text {
-      font-size: 12px;
-      color: rgba(255,255,255,0.55);
-      letter-spacing: 0.01em;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray-500);
     }
 
-    .announce-text a {
-      color: rgba(255,255,255,0.85);
+    .announce-link {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray-500);
       text-decoration: none;
-      margin-left: 8px;
-      border-bottom: 1px solid rgba(255,255,255,0.25);
+      border-bottom: 1px solid var(--gray-300);
       padding-bottom: 1px;
-      transition: border-color 0.2s;
+      transition: color 0.2s, border-color 0.2s;
     }
 
-    .announce-text a:hover { border-color: rgba(255,255,255,0.7); }
+    .announce-link:hover {
+      color: var(--black);
+      border-color: var(--black);
+    }
 
-    /* ══════ NAV ══════ */
+    /* ════════════════════════════════════════
+       NAV
+       ════════════════════════════════════════ */
     nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid var(--gray-200);
-      height: var(--nav-h);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      height: 56px;
     }
 
     .nav-inner {
@@ -89,67 +104,76 @@
       justify-content: space-between;
     }
 
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .nav-logo {
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--black);
+      display: flex;
+      align-items: center;
+      gap: 8px;
       text-decoration: none;
-      letter-spacing: 0.01em;
-      display: flex;
-      align-items: center;
-      gap: 9px;
     }
 
-    .nav-mark {
-      width: 22px;
-      height: 22px;
-      border: 1.5px solid var(--black);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .nav-logo-mark {
+      width: 24px;
+      height: 24px;
     }
 
-    .nav-mark svg {
-      width: 10px;
-      height: 10px;
-      stroke: var(--black);
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
+    .nav-logo-mark svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 16px;
+      background: var(--gray-200);
+      margin: 0 4px;
     }
 
     .nav-links {
       display: flex;
-      gap: 28px;
+      gap: 24px;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
-      color: var(--gray-500);
+      color: var(--black);
       text-decoration: none;
-      transition: color 0.15s;
+      transition: opacity 0.15s;
     }
 
-    .nav-links a:hover { color: var(--black); }
+    .nav-links a:hover { opacity: 0.5; }
 
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 24px;
     }
 
-    .nav-cta {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--gray-500);
-      text-decoration: none;
-      transition: color 0.15s;
+    .nav-cta-btn {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: none;
+      border: none;
     }
 
-    .nav-cta:hover { color: var(--black); }
+    .nav-cta-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--black);
+      fill: none;
+      stroke-width: 1.5;
+    }
 
     .nav-mobile-btn {
       display: none;
@@ -159,23 +183,39 @@
       padding: 4px;
     }
 
-    /* ══════ HERO ══════ */
+    /* Underline indicator for active nav */
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -18px;
+      height: 1.5px;
+      background: var(--black);
+    }
+
+    /* ════════════════════════════════════════
+       HERO
+       ════════════════════════════════════════ */
     .hero {
       position: relative;
-      min-height: 92vh;
-      background: var(--black);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 100%;
+      height: 100vh;
       overflow: hidden;
+      background: var(--black);
     }
 
     .hero-bg {
       position: absolute;
       inset: 0;
+      /* Dark architectural/nature image simulation */
       background:
-        linear-gradient(180deg, rgba(15,15,15,0.3) 0%, rgba(15,15,15,0.85) 100%),
-        linear-gradient(135deg, #1a1814 0%, #252018 25%, #1c1a16 50%, #13120f 100%);
+        linear-gradient(180deg, rgba(21,21,21,0.1) 0%, rgba(21,21,21,0.4) 60%, rgba(21,21,21,0.7) 100%),
+        linear-gradient(135deg, #2a261e 0%, #1e1c17 20%, #3a352a 40%, #252118 60%, #1a1814 80%, #0f0e0c 100%);
     }
 
     .hero-bg::before {
@@ -183,525 +223,580 @@
       position: absolute;
       inset: 0;
       background:
-        repeating-linear-gradient(90deg, transparent, transparent 120px, rgba(255,255,255,0.015) 120px, rgba(255,255,255,0.015) 121px),
-        repeating-linear-gradient(0deg, transparent, transparent 120px, rgba(255,255,255,0.015) 120px, rgba(255,255,255,0.015) 121px);
+        radial-gradient(ellipse 40% 50% at 70% 60%, rgba(60,80,50,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 30% 30%, rgba(40,35,25,0.3) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 80% at 50% 100%, rgba(15,15,10,0.5) 0%, transparent 50%);
     }
 
-    .hero-bg::after {
+    /* Thin vertical frame lines like Rogo */
+    .hero::before,
+    .hero::after {
       content: '';
       position: absolute;
+      top: 0;
       bottom: 0;
-      left: 0;
-      right: 0;
-      height: 40%;
-      background: linear-gradient(0deg, rgba(15,15,15,0.6) 0%, transparent 100%);
+      width: 1px;
+      background: rgba(255,255,255,0.06);
+      z-index: 3;
     }
+    .hero::before { left: 40px; }
+    .hero::after { right: 40px; }
 
     .hero-content {
       position: relative;
-      z-index: 2;
+      z-index: 4;
+      height: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 140px 40px 120px;
-      text-align: center;
     }
 
-    .hero-mark {
-      width: 52px;
-      height: 52px;
-      border: 1px solid rgba(255,255,255,0.15);
+    /* Centered product mockup panel */
+    .hero-panel {
+      margin: auto auto;
+      background: var(--white);
+      width: 460px;
+      max-width: 100%;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .hero-panel-top {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-panel-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--gray-100);
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .hero-panel-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .hero-panel-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    .hero-panel-body {
+      padding: 24px;
+      background: var(--gray-100);
+      min-height: 180px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .hero-panel-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--gray-500);
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 6px;
+      padding: 6px 12px;
+    }
+
+    .hero-panel-tag svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--gray-400);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    /* Green accent icon on hero panel (like Rogo's cube) */
+    .hero-accent-icons {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hero-accent-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-accent-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: white;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ════════════════════════════════════════
+       STATEMENT
+       ════════════════════════════════════════ */
+    .statement {
+      padding: 140px 40px;
+      background: var(--white);
+    }
+
+    .statement-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .statement h2 {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4.5vw, 56px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--black);
+      letter-spacing: -0.02em;
+    }
+
+    /* ════════════════════════════════════════
+       SECTION — FEATURE WITH VISUAL
+       ════════════════════════════════════════ */
+    .section-feature {
+      padding: 0 40px 120px;
+      background: var(--white);
+    }
+
+    .section-feature-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .sf-heading {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .sf-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--gray-500);
+      max-width: 560px;
       margin-bottom: 48px;
     }
 
-    .hero-mark svg {
-      width: 22px;
-      height: 22px;
-      stroke: rgba(255,255,255,0.5);
+    /* Dark visual block (like Rogo's product screenshots) */
+    .sf-visual {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background: #2c2924;
+      border-radius: 0;
+    }
+
+    .sf-visual-tall { aspect-ratio: 16 / 9; }
+    .sf-visual-wide { aspect-ratio: 2 / 1; }
+
+    .sf-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(160deg, rgba(50,45,35,0.5) 0%, rgba(25,23,18,0.9) 60%, rgba(15,14,12,1) 100%),
+        radial-gradient(ellipse 70% 50% at 70% 40%, rgba(60,80,45,0.1) 0%, transparent 70%);
+      z-index: 1;
+    }
+
+    /* Embedded UI panel inside visual */
+    .sf-visual-ui {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .sf-ui-frame {
+      background: var(--white);
+      width: 100%;
+      max-width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+    }
+
+    .sf-ui-bar {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--white);
+    }
+
+    .sf-ui-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sf-ui-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gray-200);
+    }
+
+    .sf-ui-tab {
+      font-size: 12px;
+      color: var(--gray-400);
+      padding: 4px 0;
+      cursor: default;
+    }
+
+    .sf-ui-tab.active {
+      color: var(--black);
+      border-bottom: 1.5px solid var(--black);
+    }
+
+    .sf-ui-body {
+      display: flex;
+    }
+
+    .sf-ui-sidebar {
+      width: 200px;
+      background: var(--gray-100);
+      padding: 16px;
+      border-right: 1px solid var(--gray-200);
+      flex-shrink: 0;
+    }
+
+    .sf-ui-sidebar-item {
+      font-size: 12px;
+      color: var(--gray-500);
+      padding: 8px 10px;
+      border-radius: 4px;
+      margin-bottom: 2px;
+      cursor: default;
+    }
+
+    .sf-ui-sidebar-item.active {
+      background: var(--white);
+      color: var(--black);
+      font-weight: 500;
+    }
+
+    .sf-ui-main {
+      flex: 1;
+      padding: 20px;
+      background: var(--white);
+    }
+
+    .sf-ui-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .sf-ui-row:last-child { border-bottom: none; }
+
+    .sf-ui-row-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sf-ui-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--gray-600);
+    }
+
+    .sf-ui-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    .sf-ui-meta {
+      font-size: 11px;
+      color: var(--gray-400);
+    }
+
+    .sf-ui-badge {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+
+    .sf-ui-badge.green { background: #dcfce7; color: #166534; }
+    .sf-ui-badge.blue { background: #dbeafe; color: #1e40af; }
+
+    /* ════════════════════════════════════════
+       WORKFLOW CARDS (like Rogo's agent cards)
+       ════════════════════════════════════════ */
+    .section-workflows {
+      padding: 0 40px 120px;
+      background: var(--white);
+    }
+
+    .sw-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .sw-heading {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .sw-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--gray-500);
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+
+    /* Dark visual with card grid */
+    .sw-visual {
+      width: 100%;
+      background: #2c2924;
+      position: relative;
+      overflow: hidden;
+      padding: 48px 40px;
+    }
+
+    .sw-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(160deg, rgba(50,45,35,0.5) 0%, rgba(25,23,18,0.9) 60%, rgba(15,14,12,1) 100%),
+        radial-gradient(ellipse 70% 50% at 70% 40%, rgba(60,80,45,0.08) 0%, transparent 70%);
+      z-index: 1;
+    }
+
+    .sw-cards {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .sw-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .sw-card-icon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sw-card-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--gray-600);
       fill: none;
       stroke-width: 1.5;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
-    .hero-eyebrow {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-      margin-bottom: 28px;
-    }
-
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(44px, 6.5vw, 84px);
+    .sw-card-label {
+      font-size: 12px;
       font-weight: 400;
-      line-height: 1.05;
-      letter-spacing: -0.5px;
-      color: var(--white);
-      max-width: 860px;
-      margin-bottom: 32px;
-    }
-
-    .hero-sub {
-      font-size: 15px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.4);
-      max-width: 420px;
-      line-height: 1.7;
-      margin-bottom: 56px;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .btn-white {
-      font-family: var(--sans);
-      font-size: 13px;
-      font-weight: 500;
       color: var(--black);
-      background: var(--white);
-      border: none;
-      padding: 12px 28px;
-      cursor: pointer;
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      transition: opacity 0.15s;
+      line-height: 1.3;
     }
 
-    .btn-white:hover { opacity: 0.88; }
-
-    .btn-ghost-light {
-      font-size: 13px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.4);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
-      padding-bottom: 2px;
-      transition: color 0.15s, border-color 0.15s;
-    }
-
-    .btn-ghost-light:hover {
-      color: rgba(255,255,255,0.75);
-      border-color: rgba(255,255,255,0.4);
-    }
-
-    /* ══════ STATEMENT ══════ */
-    .statement {
-      padding: 140px 40px;
-      background: var(--white);
-      text-align: center;
-    }
-
-    .statement-inner {
-      max-width: 880px;
-      margin: 0 auto;
-    }
-
-    .statement h2 {
-      font-family: var(--serif);
-      font-size: clamp(28px, 4.5vw, 56px);
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--black);
-      letter-spacing: -0.3px;
-    }
-
-    /* ══════ PARTNERS STRIP ══════ */
-    .partners {
-      padding: 48px 40px;
-      border-top: 1px solid var(--gray-200);
-      border-bottom: 1px solid var(--gray-200);
+    /* ════════════════════════════════════════
+       EMBED / DNA SECTION
+       ════════════════════════════════════════ */
+    .section-dna {
+      padding: 0 40px 120px;
       background: var(--white);
     }
 
-    .partners-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .partners-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray-400);
-      white-space: nowrap;
-    }
-
-    .partners-list {
-      display: flex;
-      gap: 36px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .partner-name {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--gray-400);
-      white-space: nowrap;
-    }
-
-    /* ══════ FEATURE SECTION ══════ */
-    .feature {
-      padding: 120px 40px 0;
-      background: var(--white);
-    }
-
-    .feature:last-of-type { padding-bottom: 120px; }
-
-    .feature-inner {
+    .dna-inner {
       max-width: var(--max-w);
       margin: 0 auto;
     }
 
-    .feature-header {
-      margin-bottom: 56px;
-    }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray-400);
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    .section-heading {
+    .dna-heading {
       font-family: var(--serif);
-      font-size: clamp(30px, 3.5vw, 48px);
+      font-size: clamp(28px, 3.5vw, 48px);
       font-weight: 400;
-      line-height: 1.1;
+      line-height: 1.15;
       color: var(--black);
-      letter-spacing: -0.3px;
+      letter-spacing: -0.02em;
       margin-bottom: 16px;
     }
 
-    .section-body {
-      font-size: 15px;
+    .dna-body {
+      font-size: 16px;
       font-weight: 400;
-      line-height: 1.7;
+      line-height: 1.6;
       color: var(--gray-500);
-      max-width: 500px;
-    }
-
-    /* Dark image block */
-    .feature-visual {
-      width: 100%;
-      aspect-ratio: 16 / 7;
-      background: var(--black);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-visual::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #1e1c18 0%, #2a2620 30%, #1a1815 60%, #0f0f0f 100%);
-    }
-
-    .feature-visual::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        90deg, transparent, transparent 60px,
-        rgba(255,255,255,0.018) 60px, rgba(255,255,255,0.018) 61px
-      );
-    }
-
-    .visual-ui {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
-    }
-
-    .visual-panel {
-      background: var(--white);
       max-width: 520px;
-      width: 100%;
-      padding: 0;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    }
-
-    .visual-panel-bar {
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--gray-200);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .visual-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--gray-300);
-    }
-
-    .visual-panel-body {
-      padding: 28px 24px;
-    }
-
-    .visual-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--gray-100);
-    }
-
-    .visual-row:last-child { border-bottom: none; }
-
-    .visual-row-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .visual-avatar {
-      width: 32px;
-      height: 32px;
-      background: var(--gray-100);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--gray-500);
-    }
-
-    .visual-name {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--black);
-    }
-
-    .visual-role {
-      font-size: 11px;
-      color: var(--gray-400);
-    }
-
-    .visual-badge {
-      font-size: 11px;
-      font-weight: 500;
-      padding: 3px 10px;
-      border: 1px solid var(--gray-200);
-      color: var(--gray-600);
-    }
-
-    .visual-badge.active {
-      border-color: var(--black);
-      color: var(--black);
-    }
-
-    /* Feature items grid */
-    .feature-items {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0;
-      border-top: 1px solid var(--gray-200);
-      margin-top: 80px;
-    }
-
-    .feature-item {
-      padding: 40px 0;
-      border-bottom: 1px solid var(--gray-200);
-    }
-
-    .feature-item:nth-child(odd) {
-      padding-right: 60px;
-      border-right: 1px solid var(--gray-200);
-    }
-
-    .feature-item:nth-child(even) {
-      padding-left: 60px;
-    }
-
-    .fi-label {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--black);
-      margin-bottom: 8px;
-    }
-
-    .fi-body {
-      font-size: 13px;
-      line-height: 1.7;
-      color: var(--gray-500);
-      font-weight: 400;
-    }
-
-    /* ══════ CRAFTS ══════ */
-    .crafts {
-      padding: 120px 40px;
-      background: var(--gray-50);
-      border-top: 1px solid var(--gray-200);
-    }
-
-    .crafts-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-
-    .crafts-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 60px;
       margin-bottom: 56px;
     }
 
-    .crafts-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--gray-200);
-      border-left: 1px solid var(--gray-200);
-    }
-
-    .craft-cell {
-      padding: 36px 32px;
-      border-right: 1px solid var(--gray-200);
-      border-bottom: 1px solid var(--gray-200);
-      background: var(--white);
-      transition: background 0.2s;
-    }
-
-    .craft-cell:hover { background: var(--gray-50); }
-
-    .craft-name {
-      font-family: var(--serif);
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--black);
-      margin-bottom: 8px;
-      letter-spacing: -0.2px;
-    }
-
-    .craft-desc {
-      font-size: 12px;
-      line-height: 1.65;
-      color: var(--gray-400);
-    }
-
-    /* ══════ STATS ══════ */
-    .stats {
-      padding: 80px 40px;
-      border-top: 1px solid var(--gray-200);
-      border-bottom: 1px solid var(--gray-200);
-      background: var(--white);
-    }
-
-    .stats-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .stat {
-      padding: 0 40px;
-      border-right: 1px solid var(--gray-200);
-    }
-
-    .stat:first-child { padding-left: 0; }
-    .stat:last-child { border-right: none; padding-right: 0; }
-
-    .stat-num {
-      font-family: var(--serif);
-      font-size: 52px;
-      font-weight: 400;
-      color: var(--black);
-      line-height: 1;
-      letter-spacing: -1px;
-      margin-bottom: 8px;
-    }
-
-    .stat-label {
-      font-size: 13px;
-      color: var(--gray-500);
-      font-weight: 400;
-      line-height: 1.5;
-    }
-
-    /* ══════ PROCESS ══════ */
-    .process {
-      padding: 120px 40px;
-      background: var(--white);
-    }
-
-    .process-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-
-    .process-header {
-      margin-bottom: 64px;
-    }
-
-    .process-list {
+    /* Feature items: bold label + description */
+    .dna-items {
       display: flex;
       flex-direction: column;
+      gap: 48px;
     }
 
-    .process-row {
-      display: grid;
-      grid-template-columns: 80px 1fr 1fr;
-      gap: 0;
-      padding: 36px 0;
-      border-bottom: 1px solid var(--gray-200);
-      align-items: baseline;
-    }
+    .dna-item {}
 
-    .process-row:first-child { border-top: 1px solid var(--gray-200); }
-
-    .process-idx {
-      font-size: 12px;
-      color: var(--gray-400);
-      font-family: var(--mono);
-      letter-spacing: 0.02em;
-    }
-
-    .process-title {
-      font-family: var(--serif);
-      font-size: 24px;
-      font-weight: 400;
+    .dna-item-label {
+      font-size: 16px;
+      font-weight: 600;
       color: var(--black);
-      letter-spacing: -0.2px;
+      margin-bottom: 8px;
     }
 
-    .process-desc {
-      font-size: 14px;
-      line-height: 1.7;
+    .dna-item-body {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
       color: var(--gray-500);
-      max-width: 380px;
+      max-width: 600px;
     }
 
-    /* ══════ TESTIMONIAL ══════ */
-    .testimonial {
+    /* ════════════════════════════════════════
+       ENTERPRISE / SECURITY
+       ════════════════════════════════════════ */
+    .section-enterprise {
       padding: 120px 40px;
-      background: var(--gray-50);
-      border-top: 1px solid var(--gray-200);
+      background: var(--white);
+    }
+
+    .enterprise-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .enterprise-heading {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .enterprise-body {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray-500);
+      margin-bottom: 80px;
+    }
+
+    .enterprise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 64px 48px;
+      text-align: left;
+    }
+
+    .eg-item {}
+
+    .eg-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .eg-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--gray-400);
+      fill: none;
+      stroke-width: 1.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .eg-label {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .eg-body {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--gray-500);
+    }
+
+    /* ════════════════════════════════════════
+       TESTIMONIAL
+       ════════════════════════════════════════ */
+    .section-testimonial {
+      padding: 120px 40px;
+      background: var(--white);
     }
 
     .testimonial-inner {
@@ -713,16 +808,16 @@
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      margin-bottom: 56px;
+      margin-bottom: 48px;
     }
 
     .testimonial-title {
       font-family: var(--serif);
-      font-size: clamp(26px, 3vw, 42px);
+      font-size: clamp(26px, 3.5vw, 44px);
       font-weight: 400;
-      color: var(--black);
       line-height: 1.15;
-      letter-spacing: -0.2px;
+      color: var(--black);
+      letter-spacing: -0.02em;
     }
 
     .testimonial-nav {
@@ -734,14 +829,15 @@
     .testimonial-nav button {
       width: 36px;
       height: 36px;
+      border-radius: 50%;
       background: none;
       border: 1px solid var(--gray-200);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gray-400);
       font-size: 16px;
+      color: var(--gray-400);
       transition: border-color 0.15s, color 0.15s;
     }
 
@@ -753,22 +849,22 @@
     .testimonial-card {
       display: grid;
       grid-template-columns: 5fr 7fr;
-      border: 1px solid var(--gray-200);
-      background: var(--white);
+      min-height: 480px;
     }
 
     .testimonial-img {
-      background: var(--black);
       position: relative;
       overflow: hidden;
-      min-height: 400px;
+      background: var(--black);
     }
 
+    /* Blurred motion photo effect like Rogo */
     .testimonial-img::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(160deg, #2a2620 0%, #1a1714 40%, #0f0e0c 100%);
+      background:
+        linear-gradient(180deg, #3a322a 0%, #28221c 30%, #1a1612 60%, #0d0c0a 100%);
     }
 
     .testimonial-img::after {
@@ -776,24 +872,28 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 70% 90% at 35% 50%, rgba(80,70,50,0.3) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 50% at 80% 30%, rgba(60,55,45,0.2) 0%, transparent 60%);
+        radial-gradient(ellipse 80% 100% at 40% 50%, rgba(120,100,70,0.2) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 70% 30%, rgba(90,75,55,0.15) 0%, transparent 50%),
+        linear-gradient(90deg, transparent 0%, rgba(200,180,140,0.04) 50%, transparent 100%);
+      filter: blur(0px);
     }
 
     .testimonial-body {
-      padding: 60px 56px;
+      padding: 56px 56px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      border: 1px solid var(--gray-200);
+      border-left: none;
     }
 
     .testimonial-quote {
       font-family: var(--serif);
-      font-size: clamp(22px, 2.5vw, 34px);
+      font-size: clamp(22px, 2.8vw, 36px);
       font-weight: 400;
       line-height: 1.3;
       color: var(--black);
-      letter-spacing: -0.2px;
+      letter-spacing: -0.01em;
     }
 
     .testimonial-author {
@@ -804,20 +904,22 @@
       font-size: 14px;
       font-weight: 400;
       color: var(--black);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .testimonial-role {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 400;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--gray-500);
       font-family: var(--mono);
     }
 
-    /* ══════ CTA ══════ */
-    .cta {
+    /* ════════════════════════════════════════
+       CTA
+       ════════════════════════════════════════ */
+    .section-cta {
       padding: 120px 40px;
       background: var(--white);
       border-top: 1px solid var(--gray-200);
@@ -826,45 +928,31 @@
     .cta-inner {
       max-width: var(--max-w);
       margin: 0 auto;
+    }
+
+    .cta-mark {
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 32px;
+      font-family: var(--serif);
+    }
+
+    .cta-row {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
       gap: 80px;
     }
 
-    .cta-left {}
-
-    .cta-mark {
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--gray-200);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 32px;
-    }
-
-    .cta-mark svg {
-      width: 16px;
-      height: 16px;
-      stroke: var(--gray-400);
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-    }
-
     .cta-heading {
       font-family: var(--serif);
       font-size: clamp(36px, 5vw, 64px);
       font-weight: 400;
-      color: var(--black);
       line-height: 1.08;
-      letter-spacing: -0.5px;
-    }
-
-    .cta-right {
-      flex-shrink: 0;
-      padding-bottom: 10px;
+      color: var(--black);
+      letter-spacing: -0.02em;
     }
 
     .cta-link {
@@ -872,9 +960,11 @@
       font-weight: 400;
       color: var(--gray-500);
       text-decoration: none;
-      border-bottom: 1px solid var(--gray-200);
-      padding-bottom: 3px;
+      border-bottom: 1px solid var(--gray-300);
+      padding-bottom: 2px;
       transition: color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .cta-link:hover {
@@ -882,11 +972,12 @@
       border-color: var(--black);
     }
 
-    /* ══════ CONTACT ══════ */
-    .contact {
+    /* ════════════════════════════════════════
+       CONTACT
+       ════════════════════════════════════════ */
+    .section-contact {
       padding: 120px 40px;
-      background: var(--gray-50);
-      border-top: 1px solid var(--gray-200);
+      background: var(--bg-warm);
     }
 
     .contact-inner {
@@ -896,6 +987,43 @@
       grid-template-columns: 1fr 1fr;
       gap: 100px;
       align-items: start;
+    }
+
+    .contact-heading {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .contact-body {
+      font-size: 16px;
+      color: var(--gray-500);
+      line-height: 1.6;
+      margin-bottom: 48px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .cd-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 4px;
+    }
+
+    .cd-value {
+      font-size: 15px;
+      color: var(--black);
     }
 
     .contact-form {
@@ -910,7 +1038,7 @@
       gap: 8px;
     }
 
-    label {
+    .form-label {
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.1em;
@@ -920,11 +1048,11 @@
 
     input, select, textarea {
       font-family: var(--sans);
-      font-size: 14px;
+      font-size: 15px;
       color: var(--black);
       background: transparent;
       border: none;
-      border-bottom: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-300);
       padding: 10px 0;
       outline: none;
       transition: border-color 0.2s;
@@ -945,9 +1073,6 @@
 
     select {
       cursor: pointer;
-      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23a3a3a3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 0 center;
     }
 
     .form-row {
@@ -958,142 +1083,93 @@
 
     .btn-submit {
       font-family: var(--sans);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 500;
       color: var(--white);
       background: var(--black);
       border: none;
-      padding: 14px 28px;
+      padding: 14px 32px;
       cursor: pointer;
       width: fit-content;
-      letter-spacing: 0.02em;
       transition: opacity 0.15s;
       margin-top: 8px;
     }
 
     .btn-submit:hover { opacity: 0.8; }
 
-    .contact-details {
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
-      margin-top: 12px;
-    }
-
-    .cd-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray-400);
-      margin-bottom: 6px;
-    }
-
-    .cd-value {
-      font-size: 15px;
-      color: var(--black);
-      font-weight: 400;
-    }
-
-    .cd-text {
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--gray-500);
-      max-width: 360px;
-    }
-
-    /* ══════ FOOTER ══════ */
+    /* ════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════ */
     footer {
-      background: var(--black);
-      padding: 60px 40px 36px;
+      background: var(--white);
+      padding: 40px 40px 32px;
+      border-top: 1px solid var(--gray-200);
     }
 
     .footer-inner {
       max-width: var(--max-w);
       margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .footer-top {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 60px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 24px;
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .footer-logo-mark {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer-logo-mark svg {
+      width: 20px;
+      height: 20px;
     }
 
     .footer-logo-text {
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--white);
-      margin-bottom: 14px;
-    }
-
-    .footer-tagline {
       font-size: 13px;
-      color: rgba(255,255,255,0.3);
-      line-height: 1.65;
-      max-width: 240px;
-    }
-
-    .footer-col-title {
-      font-size: 10px;
       font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.25);
-      margin-bottom: 20px;
+      color: var(--black);
     }
 
     .footer-links {
-      list-style: none;
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      gap: 20px;
+      list-style: none;
     }
 
     .footer-links a {
       font-size: 13px;
-      color: rgba(255,255,255,0.35);
+      color: var(--gray-500);
       text-decoration: none;
       transition: color 0.15s;
     }
 
-    .footer-links a:hover { color: rgba(255,255,255,0.75); }
+    .footer-links a:hover { color: var(--black); }
 
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-copy {
+    .footer-right {
       font-size: 12px;
-      color: rgba(255,255,255,0.15);
+      color: var(--gray-400);
     }
 
-    .footer-legal {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-legal a {
-      font-size: 12px;
-      color: rgba(255,255,255,0.15);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    .footer-legal a:hover { color: rgba(255,255,255,0.4); }
-
-    /* ══════ MOBILE MENU ══════ */
+    /* ════════════════════════════════════════
+       MOBILE MENU
+       ════════════════════════════════════════ */
     .mobile-menu {
       display: none;
       position: fixed;
-      top: var(--nav-h);
+      top: 56px;
       left: 0; right: 0;
       background: var(--white);
       border-bottom: 1px solid var(--gray-200);
@@ -1105,7 +1181,7 @@
     .mobile-menu.open { display: flex; }
 
     .mobile-menu a {
-      font-size: 15px;
+      font-size: 16px;
       color: var(--black);
       text-decoration: none;
       padding: 14px 0;
@@ -1114,54 +1190,40 @@
 
     .mobile-menu a:last-child { border-bottom: none; }
 
-    /* ══════ RESPONSIVE ══════ */
+    /* ════════════════════════════════════════
+       RESPONSIVE
+       ════════════════════════════════════════ */
     @media (max-width: 1000px) {
-      .feature-items { grid-template-columns: 1fr; }
-      .feature-item:nth-child(odd) { border-right: none; padding-right: 0; }
-      .feature-item:nth-child(even) { padding-left: 0; }
-      .crafts-grid { grid-template-columns: repeat(2, 1fr); }
-      .stats-inner { grid-template-columns: repeat(2, 1fr); row-gap: 48px; }
-      .stat:nth-child(2) { border-right: none; }
-      .stat:nth-child(3) { padding-left: 0; }
+      .hero-panel { width: 380px; }
+      .sw-cards { grid-template-columns: repeat(3, 1fr); }
+      .enterprise-grid { grid-template-columns: repeat(2, 1fr); }
       .testimonial-card { grid-template-columns: 1fr; }
       .testimonial-img { min-height: 240px; }
-      .cta-inner { flex-direction: column; align-items: flex-start; gap: 40px; }
-      .contact-inner { grid-template-columns: 1fr; gap: 60px; }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
-      .process-row { grid-template-columns: 60px 1fr; }
-      .process-desc { grid-column: 2; margin-top: 8px; }
-      .crafts-top { flex-direction: column; gap: 24px; }
+      .testimonial-body { border-left: 1px solid var(--gray-200); }
+      .contact-inner { grid-template-columns: 1fr; gap: 64px; }
+      .cta-row { flex-direction: column; align-items: flex-start; gap: 32px; }
     }
 
     @media (max-width: 640px) {
-      :root { --nav-h: 48px; }
-
-      .hero-content { padding: 100px 24px 80px; }
-      .hero h1 { font-size: 40px; }
-      .statement { padding: 80px 24px; }
-      .feature, .crafts, .stats, .process, .testimonial, .cta, .contact { padding-left: 24px; padding-right: 24px; }
-      footer { padding-left: 24px; padding-right: 24px; }
-      .nav-inner { padding: 0 20px; }
-      .partners { padding: 32px 24px; }
-
       .nav-links { display: none; }
-      .nav-cta { display: none; }
       .nav-mobile-btn { display: block; }
-
-      .crafts-grid { grid-template-columns: 1fr; }
-      .stats-inner { grid-template-columns: 1fr; row-gap: 36px; }
-      .stat { border-right: none; padding: 0; }
-
-      .hero-actions { flex-direction: column; gap: 16px; }
-
-      .form-row { grid-template-columns: 1fr; gap: 24px; }
-
-      .feature-visual { aspect-ratio: 16/10; }
-      .visual-panel { max-width: 100%; }
-
-      .testimonial-body { padding: 36px 28px; }
-
-      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .announce { padding: 10px 20px; }
+      .nav-inner { padding: 0 20px; }
+      .hero::before, .hero::after { display: none; }
+      .hero-content { padding: 0 20px; }
+      .hero-panel { width: 100%; }
+      .hero-accent-icons { display: none; }
+      .statement { padding: 80px 20px; }
+      .section-feature, .section-workflows, .section-dna { padding-left: 20px; padding-right: 20px; }
+      .section-enterprise, .section-testimonial, .section-cta, .section-contact { padding-left: 20px; padding-right: 20px; }
+      footer { padding-left: 20px; padding-right: 20px; }
+      .sw-cards { grid-template-columns: repeat(2, 1fr); }
+      .enterprise-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .sf-visual-ui { padding: 20px; }
+      .sf-ui-sidebar { display: none; }
+      .testimonial-body { padding: 36px 24px; }
     }
   </style>
 </head>
@@ -1169,41 +1231,43 @@
 
 <!-- ═══ ANNOUNCEMENT BAR ═══ -->
 <div class="announce">
-  <div class="announce-text">
-    47 hantverkare placerade under Q1 2025
-    <a href="#contact">Läs mer</a>
-  </div>
+  <span class="announce-text">Så hjälpte vi Nordisk Fasad bemanna 12 projekt under Q1 2025</span>
+  <a href="#kontakt" class="announce-link">Läs mer</a>
 </div>
 
 <!-- ═══ NAV ═══ -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <div class="nav-mark">
-        <svg viewBox="0 0 12 12"><path d="M2 10 6 2l4 8"/></svg>
-      </div>
-      Hantverkskraft
-    </a>
-
-    <ul class="nav-links">
-      <li><a href="#bemanning">Bemanning</a></li>
-      <li><a href="#yrkeskategorier">Yrkeskategorier</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
-    </ul>
-
+    <div class="nav-left">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-mark">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 20 L12 4 L21 20" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M7.5 13 L16.5 13" stroke="#151515" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </a>
+      <div class="nav-divider"></div>
+      <ul class="nav-links">
+        <li><a href="#bemanning">Bemanning</a></li>
+        <li><a href="#yrkeskategorier">Yrkeskategorier</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
     <div class="nav-right">
-      <a href="#kontakt" class="nav-cta">Kom igång</a>
+      <button class="nav-cta-btn" aria-label="Meny">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/></svg>
+      </button>
       <button class="nav-mobile-btn" onclick="toggleMenu()" aria-label="Meny">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M3 5h14M3 10h14M3 15h14" stroke="#0f0f0f" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M3 5h14M3 10h14M3 15h14" stroke="#151515" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </button>
     </div>
   </div>
 </nav>
 
-<!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#bemanning" onclick="toggleMenu()">Bemanning</a>
   <a href="#yrkeskategorier" onclick="toggleMenu()">Yrkeskategorier</a>
@@ -1215,15 +1279,29 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-mark">
-      <svg viewBox="0 0 24 24"><path d="M4 20 12 4l8 16"/><path d="M8 14h8"/></svg>
-    </div>
-    <div class="hero-eyebrow">Bemanning av hantverkare</div>
-    <h1>Rätt hantverkare.<br>Rätt plats.</h1>
-    <p class="hero-sub">Vi kopplar samman skickliga murare, putsarbetare och snickare med entreprenörer som behöver förstärkning.</p>
-    <div class="hero-actions">
-      <a href="#kontakt" class="btn-white">Hitta personal</a>
-      <a href="#bemanning" class="btn-ghost-light">Jag är hantverkare</a>
+    <div class="hero-panel">
+      <div class="hero-accent-icons">
+        <div class="hero-accent-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        </div>
+        <div class="hero-accent-icon" style="background:var(--white);border:1px solid var(--gray-200);">
+          <svg viewBox="0 0 24 24" style="stroke:var(--green);">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </div>
+      </div>
+      <div class="hero-panel-top">
+        <div class="hero-panel-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <span class="hero-panel-title">Hantverkskraft</span>
+      </div>
+      <div class="hero-panel-body">
+        <div class="hero-panel-tag">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          Matchar hantverkare...
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1231,244 +1309,257 @@
 <!-- ═══ STATEMENT ═══ -->
 <section class="statement">
   <div class="statement-inner">
-    <h2>Tusentals hantverkare i Sverige saknar uppdrag varje vecka medan entreprenörer desperat söker personal. Hantverkskraft förändrar det.</h2>
+    <h2>Tusentals hantverkare i Sverige saknar uppdrag medan entreprenörer desperat söker personal. Hantverkskraft förändrar det.</h2>
   </div>
 </section>
 
-<!-- ═══ PARTNERS ═══ -->
-<div class="partners">
-  <div class="partners-inner">
-    <span class="partners-label">Samarbetar med</span>
-    <div class="partners-list">
-      <span class="partner-name">Nordisk Fasad</span>
-      <span class="partner-name">Stockholms Mureri</span>
-      <span class="partner-name">Bygg & Anläggning AB</span>
-      <span class="partner-name">Svensson Bygg</span>
-      <span class="partner-name">Malmö Snickeri</span>
-    </div>
-  </div>
-</div>
+<!-- ═══ FEATURE 1 ═══ -->
+<section class="section-feature" id="bemanning">
+  <div class="section-feature-inner">
+    <h2 class="sf-heading">Matchning med erfarna hantverkare</h2>
+    <p class="sf-body">Hantverkare verifierade av branschens mest erfarna projektledare och entreprenörer.</p>
 
-<!-- ═══ FEATURE 1: FOR COMPANIES ═══ -->
-<section class="feature" id="bemanning">
-  <div class="feature-inner">
-    <div class="feature-header">
-      <span class="section-label">Bemanning för entreprenörer</span>
-      <h2 class="section-heading">Sysselsätt era projekt med verifierade hantverkare</h2>
-      <p class="section-body">Hantverkskraft samarbetar med entreprenörer i byggsektorn för att deras personal ska sysselsättas när de inte har projekt — och levererar förstärkning när ni behöver den.</p>
-    </div>
-
-    <div class="feature-visual">
-      <div class="visual-ui">
-        <div class="visual-panel">
-          <div class="visual-panel-bar">
-            <span class="visual-dot"></span>
-            <span class="visual-dot"></span>
-            <span class="visual-dot"></span>
+    <div class="sf-visual sf-visual-tall">
+      <div class="sf-visual-ui">
+        <div class="sf-ui-frame">
+          <div class="sf-ui-bar">
+            <div class="sf-ui-bar-left">
+              <span class="sf-ui-dot"></span>
+              <span class="sf-ui-dot"></span>
+              <span class="sf-ui-dot"></span>
+            </div>
+            <span class="sf-ui-tab">Översikt</span>
+            <span class="sf-ui-tab active">Tillgänglig personal</span>
+            <span class="sf-ui-tab" style="margin-left:auto;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </span>
           </div>
-          <div class="visual-panel-body">
-            <div class="visual-row">
-              <div class="visual-row-left">
-                <div class="visual-avatar">JL</div>
-                <div>
-                  <div class="visual-name">Johan Lindqvist</div>
-                  <div class="visual-role">Murare · 12 år</div>
-                </div>
-              </div>
-              <span class="visual-badge active">Tillgänglig</span>
+          <div class="sf-ui-body">
+            <div class="sf-ui-sidebar">
+              <div class="sf-ui-sidebar-item active">Alla yrken</div>
+              <div class="sf-ui-sidebar-item">Murare</div>
+              <div class="sf-ui-sidebar-item">Snickare</div>
+              <div class="sf-ui-sidebar-item">Putsarbetare</div>
+              <div class="sf-ui-sidebar-item">Plattsättare</div>
+              <div class="sf-ui-sidebar-item">Elektriker</div>
             </div>
-            <div class="visual-row">
-              <div class="visual-row-left">
-                <div class="visual-avatar">AK</div>
-                <div>
-                  <div class="visual-name">Anders Karlsson</div>
-                  <div class="visual-role">Snickare · 8 år</div>
+            <div class="sf-ui-main">
+              <div class="sf-ui-row">
+                <div class="sf-ui-row-left">
+                  <div class="sf-ui-avatar">JL</div>
+                  <div>
+                    <div class="sf-ui-name">Johan Lindqvist</div>
+                    <div class="sf-ui-meta">Murare &middot; 12 år &middot; Stockholm</div>
+                  </div>
                 </div>
+                <span class="sf-ui-badge green">Tillgänglig</span>
               </div>
-              <span class="visual-badge">Uppdrag</span>
-            </div>
-            <div class="visual-row">
-              <div class="visual-row-left">
-                <div class="visual-avatar">MS</div>
-                <div>
-                  <div class="visual-name">Maria Svensson</div>
-                  <div class="visual-role">Putsarbetare · 6 år</div>
+              <div class="sf-ui-row">
+                <div class="sf-ui-row-left">
+                  <div class="sf-ui-avatar">AK</div>
+                  <div>
+                    <div class="sf-ui-name">Anders Karlsson</div>
+                    <div class="sf-ui-meta">Snickare &middot; 8 år &middot; Göteborg</div>
+                  </div>
                 </div>
+                <span class="sf-ui-badge blue">Uppdrag</span>
               </div>
-              <span class="visual-badge active">Tillgänglig</span>
-            </div>
-            <div class="visual-row">
-              <div class="visual-row-left">
-                <div class="visual-avatar">PH</div>
-                <div>
-                  <div class="visual-name">Patrik Holm</div>
-                  <div class="visual-role">Plattsättare · 10 år</div>
+              <div class="sf-ui-row">
+                <div class="sf-ui-row-left">
+                  <div class="sf-ui-avatar">MS</div>
+                  <div>
+                    <div class="sf-ui-name">Maria Svensson</div>
+                    <div class="sf-ui-meta">Putsarbetare &middot; 6 år &middot; Malmö</div>
+                  </div>
                 </div>
+                <span class="sf-ui-badge green">Tillgänglig</span>
               </div>
-              <span class="visual-badge active">Tillgänglig</span>
+              <div class="sf-ui-row">
+                <div class="sf-ui-row-left">
+                  <div class="sf-ui-avatar">PH</div>
+                  <div>
+                    <div class="sf-ui-name">Patrik Holm</div>
+                    <div class="sf-ui-meta">Plattsättare &middot; 10 år &middot; Uppsala</div>
+                  </div>
+                </div>
+                <span class="sf-ui-badge green">Tillgänglig</span>
+              </div>
+              <div class="sf-ui-row">
+                <div class="sf-ui-row-left">
+                  <div class="sf-ui-avatar">EO</div>
+                  <div>
+                    <div class="sf-ui-name">Erik Olsson</div>
+                    <div class="sf-ui-meta">VVS-montör &middot; 15 år &middot; Linköping</div>
+                  </div>
+                </div>
+                <span class="sf-ui-badge blue">Uppdrag</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="feature-items">
-      <div class="feature-item">
-        <div class="fi-label">Matchning inom 48 timmar</div>
-        <div class="fi-body">Vi hittar rätt hantverkare baserat på kompetens, erfarenhet och geografiskt läge. De flesta uppdrag bemannas inom två arbetsdagar.</div>
-      </div>
-      <div class="feature-item">
-        <div class="fi-label">Verifierad kompetens</div>
-        <div class="fi-body">Alla hantverkare genomgår kontroll av yrkesutbildning, erfarenhet och referenser innan de antas till plattformen.</div>
-      </div>
-      <div class="feature-item">
-        <div class="fi-label">Flexibla uppdrag</div>
-        <div class="fi-body">Från enstaka dagar till fleråriga samarbeten. Ni bestämmer uppdragets längd och vi anpassar bemanningen.</div>
-      </div>
-      <div class="feature-item">
-        <div class="fi-label">Administration hanterad</div>
-        <div class="fi-body">Vi sköter avtal, tidrapportering och fakturering helt digitalt. Ni fokuserar på att bygga.</div>
+<!-- ═══ FEATURE 2: WORKFLOWS ═══ -->
+<section class="section-workflows" id="yrkeskategorier">
+  <div class="sw-inner">
+    <h2 class="sw-heading">Bred kompetens inom byggsektorn</h2>
+    <p class="sw-body">Tillgång till verifierade hantverkare inom alla yrkesroller — redo att leverera på era projekt.</p>
+
+    <div class="sw-visual">
+      <div class="sw-cards">
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </div>
+          <div class="sw-card-label">Murare</div>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="sw-card-label">Snickare</div>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="sw-card-label">Putsarbetare</div>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+          </div>
+          <div class="sw-card-label">Plattsättare</div>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="sw-card-label">Elektriker</div>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="sw-card-label">VVS-montör</div>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          </div>
+          <div class="sw-card-label">Takläggare</div>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          </div>
+          <div class="sw-card-label">Målare</div>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="sw-card-label">Rörmokare</div>
+        </div>
+        <div class="sw-card">
+          <div class="sw-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="sw-card-label">Fler yrken</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ FEATURE 2: FOR CRAFTSMEN ═══ -->
-<section class="feature">
-  <div class="feature-inner">
-    <div class="feature-header">
-      <span class="section-label">För hantverkare</span>
-      <h2 class="section-heading">Fyll perioderna mellan projekten</h2>
-      <p class="section-body">Samarbeta med oss och få löpande uppdrag hos seriösa entreprenörer. Sluta sitta hemma — börja bygga.</p>
-    </div>
+<!-- ═══ DNA SECTION ═══ -->
+<section class="section-dna" id="process">
+  <div class="dna-inner">
+    <h2 class="dna-heading">Inbyggd i ert sätt att bygga</h2>
+    <p class="dna-body">Istället för generiska bemanningslösningar samarbetar vi nära med er för att bygga en skräddarsydd personalpool och ge er en varaktig kapacitetsfördel.</p>
 
-    <div class="feature-items" style="margin-top:0;">
-      <div class="feature-item">
-        <div class="fi-label">Uppdrag nära dig</div>
-        <div class="fi-body">Vi matchar dig med projekt i din region. Aldrig onödigt långa resor till arbetsplatsen.</div>
+    <div class="dna-items">
+      <div class="dna-item">
+        <div class="dna-item-label">Kompetensverifiering</div>
+        <div class="dna-item-body">Alla hantverkare granskas och verifieras med avseende på yrkesutbildning, erfarenhet och personliga referenser — samma standard som era egna anställda.</div>
       </div>
-      <div class="feature-item">
-        <div class="fi-label">Du bestämmer</div>
-        <div class="fi-body">Flexibel tillgänglighet — ange när du kan jobba och vi hittar uppdrag som passar.</div>
+      <div class="dna-item">
+        <div class="dna-item-label">Smart matchning</div>
+        <div class="dna-item-body">Vi analyserar uppdragets krav mot hantverkarens kompetens, tillgänglighet och geografiskt läge för optimal matchning inom 48 timmar.</div>
       </div>
-      <div class="feature-item">
-        <div class="fi-label">Trygg anställning</div>
-        <div class="fi-body">Kollektivavtal, ansvarsförsäkring och snabb utbetalning. Alltid i tid, utan undantag.</div>
+      <div class="dna-item">
+        <div class="dna-item-label">Digital avtalshantering</div>
+        <div class="dna-item-body">Alla avtal, ansvarsförsäkringar och dokumentation sköts helt digitalt. Ingen pappersadministration, inga förseningar.</div>
       </div>
-      <div class="feature-item">
-        <div class="fi-label">Bygg ditt nätverk</div>
-        <div class="fi-body">Arbeta med ledande entreprenörer i byggsektorn och utöka dina professionella kontakter.</div>
+      <div class="dna-item">
+        <div class="dna-item-label">Löpande uppföljning</div>
+        <div class="dna-item-body">Kontinuerlig kommunikation med hantverkare och entreprenör genom hela uppdraget för trygg genomförande.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ STATS ═══ -->
-<div class="stats">
-  <div class="stats-inner">
-    <div class="stat">
-      <div class="stat-num">200+</div>
-      <div class="stat-label">Aktiva hantverkare</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">50+</div>
-      <div class="stat-label">Partnerentreprenörer</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">48h</div>
-      <div class="stat-label">Genomsnittlig matchningstid</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">96%</div>
-      <div class="stat-label">Nöjda samarbetspartners</div>
-    </div>
-  </div>
-</div>
+<!-- ═══ ENTERPRISE ═══ -->
+<section class="section-enterprise">
+  <div class="enterprise-inner">
+    <h2 class="enterprise-heading">Byggd för professionella entreprenörer</h2>
+    <p class="enterprise-body">Hantverkskraft säkerställer kvalitet och trygghet i varje steg av bemanningsprocessen.</p>
 
-<!-- ═══ CRAFTS ═══ -->
-<section class="crafts" id="yrkeskategorier">
-  <div class="crafts-inner">
-    <div class="crafts-top">
-      <div>
-        <span class="section-label">Yrkeskategorier</span>
-        <h2 class="section-heading">Bred kompetens inom byggsektorn</h2>
+    <div class="enterprise-grid">
+      <div class="eg-item">
+        <div class="eg-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="eg-label">Kollektivavtal</div>
+        <div class="eg-body">Alla uppdrag sker enligt gällande kollektivavtal inom byggsektorn. Trygga och rättvisa villkor för alla.</div>
       </div>
-      <p class="section-body">Från murning och puts till snickeri och plåt — vi täcker de yrkesroller som byggsektorn behöver.</p>
-    </div>
-    <div class="crafts-grid">
-      <div class="craft-cell">
-        <div class="craft-name">Murare</div>
-        <div class="craft-desc">Tegelarbete, stensättning och murning av bärande konstruktioner.</div>
+      <div class="eg-item">
+        <div class="eg-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+        </div>
+        <div class="eg-label">Ansvarsförsäkring</div>
+        <div class="eg-body">Fullständig ansvarsförsäkring på alla uppdrag. Ni behöver aldrig oroa er för oförutsedda situationer.</div>
       </div>
-      <div class="craft-cell">
-        <div class="craft-name">Snickare</div>
-        <div class="craft-desc">Stomme, inredning, fönster och dörrar för alla typer av byggprojekt.</div>
+      <div class="eg-item">
+        <div class="eg-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <div class="eg-label">Verifierade hantverkare</div>
+        <div class="eg-body">Kontroll av yrkesutbildning, erfarenhet, referenser och personlig intervju innan antagning till plattformen.</div>
       </div>
-      <div class="craft-cell">
-        <div class="craft-name">Putsarbetare</div>
-        <div class="craft-desc">Utvändig och invändig puts, fasadrenovering och dekorativa ytskikt.</div>
+      <div class="eg-item">
+        <div class="eg-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="eg-label">Flexibel skalbarhet</div>
+        <div class="eg-body">Skala upp eller ner efter projektbehov. Från enstaka dagar till fleråriga samarbeten — utan bindningstid.</div>
       </div>
-      <div class="craft-cell">
-        <div class="craft-name">Plattsättare</div>
-        <div class="craft-desc">Professionell plattsättning i kök, badrum och publika miljöer.</div>
+      <div class="eg-item">
+        <div class="eg-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="eg-label">Digital administration</div>
+        <div class="eg-body">Avtal, tidrapporter och fakturering — allt sköts digitalt. Ni fokuserar på att bygga, vi sköter resten.</div>
       </div>
-      <div class="craft-cell">
-        <div class="craft-name">VVS-montörer</div>
-        <div class="craft-desc">Installation och service av rör, värme och sanitetssystem.</div>
-      </div>
-      <div class="craft-cell">
-        <div class="craft-name">Elektriker</div>
-        <div class="craft-desc">Elinstallationer och kabeldragning för bostäder och kommersiella fastigheter.</div>
-      </div>
-      <div class="craft-cell">
-        <div class="craft-name">Takläggare</div>
-        <div class="craft-desc">Läggning och reparation av tegel-, plåt- och papptak.</div>
-      </div>
-      <div class="craft-cell">
-        <div class="craft-name">Målare</div>
-        <div class="craft-desc">Invändig och utvändig målning, tapetsering och ytbehandling.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PROCESS ═══ -->
-<section class="process" id="process">
-  <div class="process-inner">
-    <div class="process-header">
-      <span class="section-label">Vår process</span>
-      <h2 class="section-heading">Kvalitet i varje steg</h2>
-    </div>
-    <div class="process-list">
-      <div class="process-row">
-        <div class="process-idx">01</div>
-        <div class="process-title">Kompetensverifiering</div>
-        <div class="process-desc">Alla hantverkare granskas med avseende på yrkesutbildning, erfarenhet och personliga referenser.</div>
-      </div>
-      <div class="process-row">
-        <div class="process-idx">02</div>
-        <div class="process-title">Smart matchning</div>
-        <div class="process-desc">Vi analyserar uppdragets krav mot kompetens, tillgänglighet och geografiskt läge.</div>
-      </div>
-      <div class="process-row">
-        <div class="process-idx">03</div>
-        <div class="process-title">Avtalshantering</div>
-        <div class="process-desc">Alla avtal, ansvarsförsäkringar och dokumentation sköts helt digitalt.</div>
-      </div>
-      <div class="process-row">
-        <div class="process-idx">04</div>
-        <div class="process-title">Löpande uppföljning</div>
-        <div class="process-desc">Kontinuerlig kommunikation med hantverkare och entreprenör genom hela uppdraget.</div>
+      <div class="eg-item">
+        <div class="eg-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="eg-label">48h matchning</div>
+        <div class="eg-body">Genomsnittlig matchningstid på under 48 timmar. Ring oss för akuta behov — vi löser det snabbare.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══ TESTIMONIAL ═══ -->
-<section class="testimonial">
+<section class="section-testimonial">
   <div class="testimonial-inner">
     <div class="testimonial-top">
-      <h2 class="testimonial-title">Vad våra<br>partners säger</h2>
+      <h2 class="testimonial-title">Vad våra partners<br>säger om Hantverkskraft</h2>
       <div class="testimonial-nav">
         <button aria-label="Föregående">&#8592;</button>
         <button aria-label="Nästa">&#8594;</button>
@@ -1477,10 +1568,10 @@
     <div class="testimonial-card">
       <div class="testimonial-img"></div>
       <div class="testimonial-body">
-        <blockquote class="testimonial-quote">"Vi fick en erfaren snickare inom 24 timmar när vår vanliga underentreprenör inte kunde leverera. Hantverkskraft räddade projektet från veckor av försening."</blockquote>
+        <blockquote class="testimonial-quote">"Hantverkskraft är överlägset den mest pålitliga bemanningspartnern vi haft. Det förändrar hur vi bemannar våra projekt och gör oss betydligt mer effektiva."</blockquote>
         <div class="testimonial-author">
-          <div class="testimonial-name">Lisa Nilsson</div>
-          <div class="testimonial-role">PROJEKTLEDARE PÅ BYGG & ANLÄGGNING AB</div>
+          <div class="testimonial-name">Magnus Henriksson</div>
+          <div class="testimonial-role">VD &amp; GRUNDARE PÅ NORDISK FASAD AB</div>
         </div>
       </div>
     </div>
@@ -1488,28 +1579,27 @@
 </section>
 
 <!-- ═══ CTA ═══ -->
-<section class="cta">
+<section class="section-cta">
   <div class="cta-inner">
-    <div class="cta-left">
-      <div class="cta-mark">
-        <svg viewBox="0 0 16 16"><path d="M3 13 8 3l5 10"/><path d="M5.5 9h5"/></svg>
-      </div>
-      <h2 class="cta-heading">Rätt hantverkare.<br>Rätt plats.</h2>
+    <div class="cta-mark">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+        <path d="M3 20 L12 4 L21 20" stroke="#151515" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7.5 13 L16.5 13" stroke="#151515" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
     </div>
-    <div class="cta-right">
+    <div class="cta-row">
+      <h2 class="cta-heading">Rätt hantverkare<br>för ert nästa projekt</h2>
       <a href="#kontakt" class="cta-link">Kom igång</a>
     </div>
   </div>
 </section>
 
 <!-- ═══ CONTACT ═══ -->
-<section class="contact" id="kontakt">
+<section class="section-contact" id="kontakt">
   <div class="contact-inner">
     <div>
-      <span class="section-label">Kontakt</span>
-      <h2 class="section-heading">Berätta om ert behov</h2>
-      <p class="section-body" style="margin-bottom:0;">Vi återkommer med ett förslag — vanligtvis samma dag.</p>
-
+      <h2 class="contact-heading">Berätta om<br>ert behov</h2>
+      <p class="contact-body">Vi återkommer med ett förslag — vanligtvis samma dag.</p>
       <div class="contact-details">
         <div>
           <div class="cd-label">E-post</div>
@@ -1521,28 +1611,27 @@
         </div>
         <div>
           <div class="cd-label">Kontor</div>
-          <div class="cd-value">Stockholm</div>
+          <div class="cd-value">Stockholm, Sverige</div>
         </div>
       </div>
     </div>
-
     <form class="contact-form" onsubmit="handleForm(event)">
       <div class="form-row">
         <div class="form-group">
-          <label for="name">Namn</label>
+          <label class="form-label" for="name">Namn</label>
           <input type="text" id="name" placeholder="Ditt namn" required />
         </div>
         <div class="form-group">
-          <label for="company">Företag</label>
+          <label class="form-label" for="company">Företag</label>
           <input type="text" id="company" placeholder="Företagsnamn" />
         </div>
       </div>
       <div class="form-group">
-        <label for="email">E-post</label>
+        <label class="form-label" for="email">E-post</label>
         <input type="email" id="email" placeholder="din@email.se" required />
       </div>
       <div class="form-group">
-        <label for="role">Jag är</label>
+        <label class="form-label" for="role">Jag är</label>
         <select id="role">
           <option value="">Välj ett alternativ</option>
           <option value="company">Entreprenör som söker personal</option>
@@ -1551,7 +1640,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="message">Meddelande</label>
+        <label class="form-label" for="message">Meddelande</label>
         <textarea id="message" placeholder="Beskriv ditt behov..."></textarea>
       </div>
       <button type="submit" class="btn-submit">Skicka meddelande</button>
@@ -1562,43 +1651,26 @@
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-logo-text">Hantverkskraft</div>
-        <p class="footer-tagline">Bemanning av hantverkare för byggsektorn.</p>
-      </div>
-      <div>
-        <div class="footer-col-title">Tjänster</div>
-        <ul class="footer-links">
-          <li><a href="#bemanning">Bemanning</a></li>
-          <li><a href="#yrkeskategorier">Yrkeskategorier</a></li>
-          <li><a href="#process">Process</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Yrken</div>
-        <ul class="footer-links">
-          <li><a href="#yrkeskategorier">Murare</a></li>
-          <li><a href="#yrkeskategorier">Snickare</a></li>
-          <li><a href="#yrkeskategorier">Putsarbetare</a></li>
-          <li><a href="#yrkeskategorier">Plattsättare</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Företaget</div>
-        <ul class="footer-links">
-          <li><a href="#kontakt">Om oss</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-          <li><a href="#kontakt">Karriär</a></li>
-        </ul>
-      </div>
+    <div class="footer-left">
+      <a href="#" class="footer-logo">
+        <div class="footer-logo-mark">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 20 L12 4 L21 20" stroke="#151515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7.5 13 L16.5 13" stroke="#151515" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="footer-logo-text">Hantverkskraft</span>
+      </a>
+      <ul class="footer-links">
+        <li><a href="#bemanning">Bemanning</a></li>
+        <li><a href="#yrkeskategorier">Yrken</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#">Integritetspolicy</a></li>
+        <li><a href="#">Villkor</a></li>
+      </ul>
     </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">&copy; 2025 Hantverkskraft AB</span>
-      <div class="footer-legal">
-        <a href="#">Integritetspolicy</a>
-        <a href="#">Villkor</a>
-      </div>
+    <div class="footer-right">
+      &copy; 2025 Hantverkskraft AB
     </div>
   </div>
 </footer>
@@ -1607,7 +1679,6 @@
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
   }
-
   function handleForm(e) {
     e.preventDefault();
     var btn = e.target.querySelector('.btn-submit');
@@ -1615,7 +1686,6 @@
     btn.style.opacity = '0.5';
     btn.disabled = true;
   }
-
   document.addEventListener('click', function(e) {
     var menu = document.getElementById('mobileMenu');
     var btn = document.querySelector('.nav-mobile-btn');
